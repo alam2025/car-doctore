@@ -7,9 +7,11 @@ import Service from './Service';
 const Home = () => {
 
       return (<>
-            <Banner />
-            <AboutUs />
-            <Service/>
+            <div className='my-container'>
+                  <Banner />
+                  <AboutUs />
+                  <Service />
+            </div>
       </>
 
 

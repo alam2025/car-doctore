@@ -8,10 +8,14 @@ const Main = () => {
       // console.log(loadService);
       return (
             <ServiceContext.Provider value={loadService}>
-                  <NavBar/>
-                  <Outlet/>
-                  <Footer/>
-                  
+                  <div className='flex flex-col min-h-screen'>
+                        
+                              <NavBar />
+                              <Outlet />
+                       
+                        <Footer />
+                  </div>
+
             </ServiceContext.Provider>
       );
 };

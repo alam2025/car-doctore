@@ -15,11 +15,15 @@ const Service = () => {
                   </div>
                   <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-16'>
                         {
-                              services.map(service=><ServiceCard
-                              key={service._id}
-                              service={service}
+                              services.map(service => <ServiceCard
+                                    key={service._id}
+                                    service={service}
                               />)
                         }
+                  </div>
+
+                  <div className=' flex justify-center items-center mb-12'>
+                        <button className=' btn btn-outline btn-secondary'>More Services</button>
                   </div>
             </div>
       );

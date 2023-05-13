@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.svg'
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const NavBar = () => {
+      const { user, logOut } = useContext(AuthContext);
+  const handleLogOut=()=>{
+      logOut()
+  }
+
+
+      // console.log(user);
       return (
-            <div className="navbar bg-base-100">
+            <div className="navbar bg-base-100 my-container">
                   <div className="navbar-start">
                         <div className="dropdown">
                               <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -16,9 +24,12 @@ const NavBar = () => {
                                     <li><Link to='/services'>Services</Link></li>
                                     <li><Link to='/blog'>Blog</Link></li>
                                     <li><Link to='/contact'>Contact</Link></li>
+                                    {
+                                          user ? <li><Link>LogOut</Link></li> : <li><Link to='/login'>Login</Link></li>
+                                    }
                               </ul>
                         </div>
-                       <img src={logo} alt="" />
+                        <Link to='/'> <img src={logo} alt="Car Doctor" /></Link>
                   </div>
                   <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal px-1">
@@ -27,6 +38,9 @@ const NavBar = () => {
                               <li><Link to='/services'>Services</Link></li>
                               <li><Link to='/blog'>Blog</Link></li>
                               <li><Link to='/contact'>Contact</Link></li>
+                              {
+                                    user ? <li><Link onClick={handleLogOut}>LogOut</Link></li> : <li><Link to='/login'>Login</Link></li>
+                              }
                         </ul>
                   </div>
                   <div className="navbar-end">
